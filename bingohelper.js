@@ -42,13 +42,6 @@ var bingoOpts = {
 var bingoBoard = ootBingoGenerator(bingoList, bingoOpts);
 
 function dif() {
-	for (row in rowElements) {
-		var sum = 0;
-		for (i of rowElements[row]) {
-			sum += bingoBoard[i].difficulty;
-		}
-		$('#' + row).append(sum);
-	}
 	for (var i=1; i<=25; i++) {
 		document.getElementById("slot"+i).style.background = "rgb(0,"+ bingoBoard[i].difficulty*10 + ",0)";
 	}
