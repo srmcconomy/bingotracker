@@ -43,56 +43,57 @@ var bingoBoard = ootBingoGenerator(bingoList, bingoOpts);
 
 function dif() {
 	for (var i=1; i<=25; i++) {
-		document.getElementById("slot"+i).style.background = "rgb(0,"+ bingoBoard[i].difficulty*10 + ",0)";
+		$("#slot"+i).css({ '-webkit-box-shadow': 'inset 0px 0px 50px rgba(' + bingoBoard[i].difficulty*10 + ',' + (250 - bingoBoard[i].difficulty*10) + ',0,1)' });
 	}
 }
 function child() {
 	for (var i=1; i<=25; i++) {
-		document.getElementById("slot"+i).style.background = "";
+		$("#slot"+i).css({ '-webkit-box-shadow': 'inset 0px 0px 50px rgba(0,0,0,0.6)' })
 		if (bingoBoard[i].child === "yes") {
-			document.getElementById("slot"+i).style.background = "rgb(100,100,0)";
+			$("#slot"+i).css({ '-webkit-box-shadow': 'inset 0px 0px 50px rgba(255,255,0,0.6)' })
 		}
 	}
 }
 function zl() {
 	for (var i=1; i<=25; i++) {
-		document.getElementById("slot"+i).style.background = "";
+		$("#slot"+i).css({ '-webkit-box-shadow': 'inset 0px 0px 50px rgba(0,0,0,0.6)' })
 		if (bingoBoard[i].types.indexOf("zl") > -1) {
-			document.getElementById("slot"+i).style.background = "rgb(100,100,0)";
+			$("#slot"+i).css({ '-webkit-box-shadow': 'inset 0px 0px 50px rgba(255,255,0,0.6)' })
 		}
 	}
 }
 function klear() {
 	for (var i=1; i<=25; i++) {
+		$("#slot"+i).css({ '-webkit-box-shadow': 'inset 0px 0px 50px rgba(0,0,0,0.6)' })
 		document.getElementById("slot"+i).style.background = "";
 	}
 }
 function dungeons() {
 	for (var i=1; i<=25; i++) {
-		document.getElementById("slot"+i).style.background = "";
+		$("#slot"+i).css({ '-webkit-box-shadow': 'inset 0px 0px 50px rgba(0,0,0,0.6)' })
 		if (bingoBoard[i].types.indexOf("deku") > -1) {
-			document.getElementById("slot"+i).style.background = "rgb(50,100,0)";
+			$("#slot"+i).css({ '-webkit-box-shadow': 'inset 0px 0px 50px rgba(127,255,0,0.6)' })
 		}
 		if (bingoBoard[i].types.indexOf("dc") > -1) {
-			document.getElementById("slot"+i).style.background = "rgb(100,50,0)";
+			$("#slot"+i).css({ '-webkit-box-shadow': 'inset 0px 0px 50px rgba(255,127,0,0.6)' })
 		}
 		if (bingoBoard[i].types.indexOf("jabu") > -1) {
-			document.getElementById("slot"+i).style.background = "rgb(0,100,100)";
+			$("#slot"+i).css({ '-webkit-box-shadow': 'inset 0px 0px 50px rgba(0,255,255,0.6)' })
 		}
 		if (bingoBoard[i].types.indexOf("forest") > -1) {
-			document.getElementById("slot"+i).style.background = "rgb(0,100,50)";
+			$("#slot"+i).css({ '-webkit-box-shadow': 'inset 0px 0px 50px rgba(0,255,127,0.6)' })
 		}
 		if (bingoBoard[i].types.indexOf("fire") > -1) {
-			document.getElementById("slot"+i).style.background = "rgb(100,0,0)";
+			$("#slot"+i).css({ '-webkit-box-shadow': 'inset 0px 0px 50px rgba(255,0,0,0.6)' })
 		}
 		if (bingoBoard[i].types.indexOf("water") > -1) {
-			document.getElementById("slot"+i).style.background = "rgb(0,0,100)";
+			$("#slot"+i).css({ '-webkit-box-shadow': 'inset 0px 0px 50px rgba(0,0,255,0.6)' })
 		}
 		if (bingoBoard[i].types.indexOf("shadow") > -1) {
-			document.getElementById("slot"+i).style.background = "rgb(50,0,100)";
+			$("#slot"+i).css({ '-webkit-box-shadow': 'inset 0px 0px 50px rgba(127,0,255,0.6)' })
 		}
 		if (bingoBoard[i].types.indexOf("spirit") > -1) {
-			document.getElementById("slot"+i).style.background = "rgb(100,100,0)";
+			$("#slot"+i).css({ '-webkit-box-shadow': 'inset 0px 0px 50px rgba(255,255,0,0.6)' })
 		}
 	}
 }
