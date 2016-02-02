@@ -22,6 +22,7 @@ var needBombchus = [
   "All 4 Wasteland/ Colossus area Skulltulas",
   "Saria's Song",
   "Beat Jabu-Jabu's Belly",
+  "Defeat Barinade",
   "All 8 Zora's Domain area Skulltulas",
   "All 8 Death Mountain area Skulltulas",
   "All 4 Gerudo Valley area Skulltulas",
@@ -189,7 +190,7 @@ function realChild() {
     $("#slot" + i).css({
       '-webkit-box-shadow': 'inset 0px 0px 50px rgba(0,0,0,0.6)'
     })
-    if (actualChild.indexOf(bingoBoard[i].name) > -1) {
+    if (bingoBoard[i].child === "yes" || actualChild.indexOf(bingoBoard[i].name) > -1) {
       $("#slot" + i).css({
         '-webkit-box-shadow': 'inset 0px 0px 50px rgba(255,255,0,0.6)'
       });
