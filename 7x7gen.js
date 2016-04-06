@@ -1,3 +1,17 @@
+goals:
+"All 3 arrow chests in Shadow Temple"
+"Yellow rupee chest in Fire Temple"
+"Defeat both invisible Floormasters"
+"39th Heart Piece (Beta Jabu)"
+"Defeat 4 unique Wallmasters"
+"Ocarina of Time"
+"Biggoron's Sword"
+
+
+
+
+
+
 (function(j, i, g, m, k, n, o) {
     function q(b) {
         var e, f, a = this,
@@ -66,7 +80,7 @@
     l(i.random(), j)
 })([], Math, 256, 6, 52);
 bingoGenerator = function(bingoList, opts) {
-    var SIZE = 7;
+    var SIZE = opts.size || 5;
     if (!opts) opts = {};
     var LANG = opts.lang || 'name';
     var SEED = opts.seed || Math.ceil(999999 * Math.random()).toString();
@@ -102,37 +116,11 @@ bingoGenerator = function(bingoList, opts) {
 
     function makeCard() {
         var bingoBoard = [];
-        for (var i = 1; i <= SIZE*SIZE; i++) {
-            if (MODE == "short") {
-                bingoBoard[i] = {
-                    difficulty: difficulty(i),
-                    child: "yes"
-                };
-            } else {
-                bingoBoard[i] = {
-                    difficulty: difficulty(i),
-                    child: "no"
-                };
-            }
-        }
         var populationOrder = [];
-        populationOrder[1] = (SIZE*SIZE+1)/2;
-        var diagonals = [];
-        var nondiagonals = [];
-        for (var i = 0; i < SIZE; i++) {
-          for (var j = 0; j < SIZE; j++) {
-            if (i === j || i === SIZE - 1 - j) {
-              if (i !== SIZE - 1 - i)
-                diagonals.push(i + j * SIZE + 1)
-            } else {
-              nondiagonals.push(i + j * SIZE + 1)
-            }
-          }
+        for (var i = 1; i <= SIZE*SIZE; i++) {
+          populationOrder[i] = i;
         }
-        shuffle(diagonals);
-        populationOrder = populationOrder.concat(diagonals);
-        shuffle(nondiagonals);
-        populationOrder = populationOrder.concat(nondiagonals);
+        shuffle(populationOrder)
         for (var i = 1; i <= SIZE*SIZE; i++) {
             var sq = populationOrder[i];
             var getDifficulty = bingoBoard[sq].difficulty;
@@ -160,7 +148,9 @@ bingoGenerator = function(bingoList, opts) {
             var e1 = Table[1][((SIZE + 1)/2 * x + y) % SIZE];
             value = SIZE * e5 + e1;
             value++;
-            return Math.ceil(value/2);
+            if (SIZE === 7) return Math.ceil(value/2);
+            if (SIZE === 9) return Math.ceil(value/3);
+            return value;
         }
 
         function shuffle(toShuffle) {
