@@ -1,0 +1,66 @@
+<html>
+<head>
+  <script src="jquery.min.js"></script>
+  <style>
+    html {
+      height: 400px;
+    }
+    body {
+      margin: 0;
+      width: 600px;
+      display: flex;
+      flex-direction: column;
+    }
+    .goal {
+      padding: 5px 0;
+      display: inline-block;
+      width: 300px;
+    }
+    .scroll>div>div:hover {
+      background: #F0F0F0;
+    }
+    .mode {
+      padding: 0 10px;
+    }
+    .scroll {
+      padding: 0 20px;
+      overflow-y: scroll;
+      height:100%;
+      flex: 1;
+    }
+    .scroll>div:not(:first-child) {
+      display: none;
+    }
+    .save {
+      font-size: 18px;
+      margin: 5px auto;
+      display: inherit;
+    }
+    .tabs {
+      display: flex;
+      flex-direction: row;
+      font-size: 16px;
+      border-bottom: 1px solid black;
+    }
+    .tabs>div {
+      padding: 5px;
+    }
+    .tabs .active {
+      background: #DDDDDD;
+    }
+    .tabs :not(.active):hover {
+      background: #EEEEEE;
+    }
+  </style>
+</head>
+<body>
+  <div class="tabs"></div>
+  <div class="scroll"></div>
+  <button class='save'>Save</button>
+  <script src="globals.js"></script>
+  <script src="settings.js"></script>
+  <script src="oot.js"></script>
+  <script src="mm.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+.item {
+  display: inline-block;
+  margin: -5px -1px;
+  background-position: center;
+  background-size: contain;
+  height: 32px;
+  width: 32px;
+}
+
+.toggle {
+  opacity: 0.5;
+  -webkit-filter: grayscale(100%);
+}
+
+.num {
+  padding-left: 5px;
+}
+
+.den {
+  margin-right: 24px;
+}
+
+.select-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.select-container>:nth-child(2) {
+  flex: 1;
+}
+
+.smalltokens .item {
+  width: 24px;
+  height: 24px;
+  margin: -1px;
+}
